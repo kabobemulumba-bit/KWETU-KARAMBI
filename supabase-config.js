@@ -1,0 +1,1 @@
+window.VILLAGE_SUPABASE_CONFIG = null;
