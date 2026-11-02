@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recensement du Village KARAMBI</title>
+    <!-- Lien vers le fichier CSS que nous allons créer ensuite -->
+    <link rel="stylesheet" href="village.css">
+    <link rel="icon" type="image/png" href="image/login-village.png">
+</head>
+<body>
+
+    <main id="auth-page">
+        <nav class="site-nav" aria-label="Navigation principale">
+            <a class="site-nav-brand" href="#accueil" aria-label="Village Karambi - accueil">
+                <span class="site-nav-mark" aria-hidden="true">K</span>
+                <span>Village <strong>Karambi</strong></span>
+            </a>
+            <button type="button" class="site-nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav-links">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="site-nav-links" id="site-nav-links">
+                <a class="site-nav-link" href="#accueil">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
+                    <span>Accueil</span>
+                </a>
+                <a class="site-nav-link" href="#en-savoir-plus">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></svg>
+                    <span>En savoir plus</span>
+                </a>
+                <a class="site-nav-link site-nav-contact" href="https://wa.me/243817390414?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20le%20recensement%20du%20village%20Karambi." target="_blank" rel="noopener noreferrer">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.5 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.9A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8.5 8.5c.3 2.5 2.3 4.5 4.8 5l1-1 2 .8c-.2 1.4-1.3 2-2.5 1.8-3.6-.6-6.2-3.2-6.8-6.8-.2-1.2.4-2.3 1.8-2.5l.8 2z"/></svg>
+                    <span>Contact</span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="auth-panel" id="accueil">
+            <section class="auth-photo-panel" aria-label="Vue d'un village">
+                <img src="image/login-village.png" alt="Maisons et jardins au bord de l'eau dans un village">
+                <div class="auth-photo-overlay">
+                    <span class="auth-photo-kicker">VILLAGE KARAMBI</span>
+                    <h2>Bienvenue chez vous.</h2>
+                    <p>Un espace simple et sûr pour gérer le recensement de votre communauté.</p>
+                </div>
+            </section>
+            <section class="auth-card auth-login-card" aria-labelledby="login-title">
+                <header class="auth-card-header">
+                    <div class="auth-brand" aria-hidden="true">K</div>
+                    <h1 id="login-title">Bienvenue</h1>
+                    <p>Connectez-vous pour accéder au recensement du village.</p>
+                </header>
+                <form id="user-login-form">
+                    <div class="form-group">
+                        <label for="login-user-email">Adresse e-mail</label>
+                        <input type="email" id="login-user-email" required placeholder="vous@exemple.com" autocomplete="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-user-password">Mot de passe</label>
+                        <input type="password" id="login-user-password" required placeholder="Votre mot de passe" autocomplete="current-password">
+                    </div>
+                    <div class="login-options">
+                        <label class="remember-option" for="remember-login">
+                            <input type="checkbox" id="remember-login" checked>
+                            <span>Se souvenir de moi</span>
+                        </label>
+                        <button type="button" id="btn-forgot-password" class="text-link">Mot de passe oublié ?</button>
+                    </div>
+                    <div id="login-user-error" class="auth-error hidden" role="alert"></div>
+                    <div id="login-offline-actions" class="login-offline-actions hidden">
+                        <button type="button" id="btn-login-retry" class="btn btn-secondary">Réessayer</button>
+                        <button type="button" id="btn-create-local-account" class="btn btn-primary">Créer un compte local</button>
+                    </div>
+                    <button type="submit" id="btn-user-login-submit" class="btn btn-primary auth-submit">Se connecter</button>
+                </form>
+                <p class="auth-switch">Pas encore de compte ? <button type="button" id="btn-show-register" class="text-link">Créer un compte</button></p>
+            </section>
+
+            <section class="auth-card auth-register hidden" aria-labelledby="register-title">
+                <header class="auth-card-header">
+                    <div class="auth-brand" aria-hidden="true">K</div>
+                    <h1 id="register-title">Créer un compte</h1>
+                    <p>Inscrivez-vous pour accéder à la saisie des villageois.</p>
+                </header>
+                <form id="user-register-form">
+                    <div class="form-group">
+                        <label for="register-nom-complet">Nom complet</label>
+                        <input type="text" id="register-nom-complet" required placeholder="Nom complet">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="register-date-naissance">Date de naissance</label>
+                            <input type="date" id="register-date-naissance" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-telephone">Téléphone</label>
+                            <input type="tel" id="register-telephone" required placeholder="+243 817390414">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Adresse e-mail</label>
+                        <input type="email" id="register-email" required placeholder="votre@mail.com" autocomplete="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Mot de passe</label>
+                        <input type="password" id="register-password" required placeholder="Mot de passe" autocomplete="new-password">
+                    </div>
+                    <div id="register-user-error" class="auth-error hidden"></div>
+                    <button type="submit" id="btn-user-register-submit" class="btn btn-primary auth-submit">S'inscrire</button>
+                </form>
+                <p class="auth-switch">Vous avez déjà un compte ? <button type="button" id="btn-show-login" class="text-link">Se connecter</button></p>
+            </div>
+        </div>
+
+        <section class="about-section" id="en-savoir-plus" aria-labelledby="about-title">
+            <div class="about-heading">
+                <span class="about-eyebrow">LE RECENSEMENT, EN TOUTE SIMPLICITÉ</span>
+                <h2 id="about-title">Mieux connaître notre communauté</h2>
+                <p>Un outil dédié au village Karambi pour organiser les informations des habitants et faciliter le suivi de la communauté.</p>
+            </div>
+            <div class="about-cards">
+                <article class="about-card">
+                    <span class="about-card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 19v-1a6 6 0 0 1 12 0v1zm13-8a3 3 0 1 0-1-5.8M18 14a5 5 0 0 1 3 4.6v.4"/></svg>
+                    </span>
+                    <h3>Un registre organisé</h3>
+                    <p>Les informations utiles des habitants sont rassemblées dans un registre consultable par les personnes autorisées.</p>
+                </article>
+                <article class="about-card">
+                    <span class="about-card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 13h8M8 17h4"/></svg>
+                    </span>
+                    <h3>Une saisie simple</h3>
+                    <p>Le formulaire permet d’enregistrer l’identité, la famille et les informations nécessaires, puis de générer un reçu.</p>
+                </article>
+                <article class="about-card">
+                    <span class="about-card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </span>
+                    <h3>Un accès encadré</h3>
+                    <p>La connexion et l’espace administrateur aident à réserver la gestion du registre aux utilisateurs concernés.</p>
+                </article>
+            </div>
+            <a class="about-contact-link" href="https://wa.me/243817390414?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20le%20recensement%20du%20village%20Karambi." target="_blank" rel="noopener noreferrer">
+                Une question ? Contactez-nous sur WhatsApp
+            </a>
+        </section>
+    </main>
+
+    <div id="app-container" class="hidden">
+    
+
+    <!-- Barre de navigation / En-tête -->
+    <header>
+        <h1>Système de Gestion du Village Karambi</h1>
+        <div id="auth-status">
+            <span id="user-welcome" class="hidden"></span>
+            <button id="btn-logout" class="btn btn-secondary hidden">Se déconnecter</button>
+            <button id="btn-admin">Espace Admin</button>
+        </div>
+    </header>
+
+    <!-- Notification Toast -->
+    <div id="toast-container"></div>
+
+    <!-- Modale de Connexion Admin -->
+    <div id="login-modal" class="modal-overlay hidden">
+        <div class="modal-content login-modal-content">
+            <div class="login-header">
+                <div class="login-icon">🔒</div>
+                <h2>Espace Administrateur</h2>
+                <p>Veuillez vous connecter pour accéder au registre</p>
+            </div>
+            <div class="login-body">
+                <div class="form-group">
+                    <label for="login-email">Adresse Email</label>
+                    <input type="text" id="login-email" placeholder="admin@village.com" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Mot de passe</label>
+                    <input type="password" id="login-password" placeholder="Entrez votre mot de passe">
+                </div>
+                <div id="login-error" class="login-error hidden">❌ Identifiants incorrects. Accès refusé.</div>
+            </div>
+            <div class="login-footer">
+                <button id="btn-login-cancel" class="btn btn-secondary">Annuler</button>
+                <button id="btn-login-submit" class="btn btn-primary">Se connecter</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale de Confirmation -->
+    <div id="confirm-modal" class="modal-overlay hidden">
+        <div class="modal-content confirm-modal-content">
+            <div class="confirm-icon">⚠️</div>
+            <h3 id="confirm-title">Confirmation</h3>
+            <p id="confirm-message">Voulez-vous vraiment effectuer cette action ?</p>
+            <div class="confirm-buttons">
+                <button id="btn-confirm-no" class="btn btn-secondary">Annuler</button>
+                <button id="btn-confirm-yes" class="btn btn-danger">Confirmer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Espace Graphique Principal -->
+    <main class="container">
+        
+        <!-- Section GAUCHE : Saisie des informations -->
+        <section class="form-section">
+            <h2>Enregistrement des Citoyens</h2>
+            <form id="recensement-form">
+                
+                <h3>1. Identité personnelle</h3>
+                <div class="form-group">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="postnom">Post-nom :</label>
+                    <input type="text" id="postnom" required>
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date-naissance">Date de naissance :</label>
+                        <input type="date" id="date-naissance" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lieu-naissance">Lieu de naissance :</label>
+                        <input type="text" id="lieu-naissance" required>
+                    </div>
+                </div>
+                <div class="form-group photo-upload-group">
+                    <label for="photo-citoyen">Photo du citoyen (JPEG, PNG ou WebP, 5 Mo maximum)</label>
+                    <input type="file" id="photo-citoyen" accept="image/*" capture="environment">
+                    <div id="photo-preview-container" class="photo-preview-container hidden">
+                        <img id="photo-preview" class="photo-preview" alt="Aperçu de la photo sélectionnée">
+                    </div>
+                </div>
+
+                <h3>2. Filiation et Famille</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nom-pere">Nom du Père :</label>
+                        <input type="text" id="nom-pere" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nom-mere">Nom de la Mère :</label>
+                        <input type="text" id="nom-mere" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nom-famille">Nom de la grande famille (Clan/Lignée) :</label>
+                    <input type="text" id="nom-famille" placeholder="Ex: Famille Mulumba">
+                </div>
+                <div class="form-group">
+                    <label for="statut-matrimonial">Statut matrimonial :</label>
+                    <select id="statut-matrimonial">
+                        <option value="celibataire">Célibataire</option>
+                        <option value="marie">Marié(e)</option>
+                        <option value="veuf">Veuf(ve)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nom-conjoint">Nom de l'épouse / de l'époux :</label>
+                    <input type="text" id="nom-conjoint">
+                </div>
+                <div class="form-group">
+                    <label for="noms-enfants">Noms des enfants (séparés par une virgule) :</label>
+                    <textarea id="noms-enfants" rows="2" placeholder="Ex: Jean, Marie, Pierre"></textarea>
+                </div>
+
+                <h3>3. Informations Socio-économiques & Santé</h3>
+                <div class="form-group">
+                    <label for="biens">Biens possédés (Terres, bétail, concessions...) :</label>
+                    <textarea id="biens" rows="2" placeholder="Ex: 2 hectares de champ, 5 têtes de bétail"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telephone">Numéro de Téléphone :</label>
+                        <input type="tel" id="telephone">
+                    </div>
+                    <div class="form-group">
+                        <label for="groupe-sanguin">Groupe Sanguin (Important en cas d'urgence) :</label>
+                        <select id="groupe-sanguin">
+                            <option value="Inconnu">Inconnu</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" id="btn-generer">Générer le Reçu</button>
+            </form>
+        </section>
+
+        <!-- Section DROITE : Affichage du reçu en temps réel -->
+        <section class="receipt-section">
+            <h2>Aperçu du Reçu</h2>
+            
+            <div id="recu-carte" class="receipt-card">
+                <div class="receipt-header">
+                    <h3>RÉPUBLIQUE DÉMOCRATIQUE DU CONGO</h3>
+                    <h4>CARTE DE RESSORTISSANT DU VILLAGE</h4>
+                    <p class="receipt-id">ID : <span id="recu-id">--------</span></p>
+                </div>
+                
+                <div class="receipt-identity">
+                    <img id="receipt-photo" class="receipt-photo hidden" alt="Photo du citoyen">
+                    <div class="receipt-identity-details">
+                        <p><strong>Nom complet :</strong> <span id="recu-nom-complet">...</span></p>
+                        <p><strong>Né(e) le :</strong> <span id="recu-naissance">...</span></p>
+                    </div>
+                </div>
+
+                <div class="receipt-body">
+                    <p><strong>Filiation :</strong> Fils/Fille de <span id="recu-parents">...</span></p>
+                    <p><strong>Famille/Clan :</strong> <span id="recu-clan">...</span></p>
+                    <p><strong>Conjoint(e) :</strong> <span id="recu-conjoint">...</span></p>
+                    <p><strong>Enfant(s) :</strong> <span id="recu-enfants">...</span></p>
+                    <p><strong>Biens déclarés :</strong> <span id="recu-biens">...</span></p>
+                    <p><strong>Groupe Sanguin :</strong> <span id="recu-sang">...</span></p>
+                </div>
+                
+                <div class="receipt-footer">
+                    <p>Fait à Goma, le <span id="recu-date-du-jour">--/--/----</span></p>
+                    <div class="signature-space">Signature Autorité</div>
+                </div>
+            </div>
+
+            <button id="btn-imprimer" type="button">Imprimer le Reçu</button>
+        </section>
+
+    </main>
+    </div>
+
+    <script src="supabase-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="village.js"></script>
+</body>
+</html>
